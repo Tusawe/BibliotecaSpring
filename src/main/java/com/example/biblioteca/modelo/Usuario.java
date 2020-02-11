@@ -1,10 +1,8 @@
 package com.example.biblioteca.modelo;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 
 
@@ -19,9 +17,6 @@ class Usuario implements Serializable {
 	private String nombre;
 	private String apellido;
 	private String email;
-	
-	// @OneToMany(mappedBy="usuario")
-	// private List<Reserva> reservas;
 	
 	public Usuario(Long id, String username, String password, String email,
 			String dni, String nombre, String apellido) {
