@@ -10,16 +10,16 @@ import javax.persistence.Id;
 public class Libro implements Serializable {
 	@Id 
 	private Long id;
-	private Long idUsuario;
+	private Long id_usuario;
 	private String isbn;
 	private String titulo;
 	private String editorial;
 	private int nPaginas;
 	
-	public Libro(Long id, Long idUsuario, String isbn, String titulo, String editorial, int nPaginas) {
+	public Libro(Long id, Long id_usuario, String isbn, String titulo, String editorial, int nPaginas) {
 		super();
 		this.id = id;
-		this.idUsuario = idUsuario;
+		this.id_usuario = id_usuario;
 		this.isbn = isbn;
 		this.titulo = titulo;
 		this.editorial = editorial;
@@ -34,14 +34,6 @@ public class Libro implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Long getIdUsuario() {
-		return idUsuario;
-	}
-
-	public void setIdUsuario(Long idUsuario) {
-		this.idUsuario = idUsuario;
 	}
 
 	public String getIsbn() {
@@ -74,6 +66,14 @@ public class Libro implements Serializable {
 
 	public void setnPaginas(int nPaginas) {
 		this.nPaginas = nPaginas;
-	}	
+	}
+
+	public Long getId_usuario() {
+		return id_usuario;
+	}
+
+	public void setId_usuario(Long id_usuario) {
+		this.id_usuario = id_usuario;
+	}
 	
 }
