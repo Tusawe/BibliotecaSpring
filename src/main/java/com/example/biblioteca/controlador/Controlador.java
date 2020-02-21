@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.biblioteca.modelo.Libro;
-import com.example.biblioteca.modelo.RepoLibros;
-import com.example.biblioteca.modelo.RepoUsuarios;
+import com.example.biblioteca.modelo.RepoLibro;
+import com.example.biblioteca.modelo.RepoUsuario;
 import com.example.biblioteca.modelo.Usuario;
 
 @CrossOrigin(origins = "*")
@@ -18,10 +18,10 @@ import com.example.biblioteca.modelo.Usuario;
 @RequestMapping("/api")
 public class Controlador {
 	@Autowired
-    RepoUsuarios repoUsuario;
+    RepoUsuario repoUsuario;
 	
 	@Autowired
-    RepoLibros repoLibro;
+    RepoLibro repoLibro;
 	
 	@GetMapping("/usuario")
     public List<Usuario> getAllUsuarios() {
