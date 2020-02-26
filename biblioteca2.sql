@@ -7,24 +7,11 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-DROP TABLE IF EXISTS `libro`;
-CREATE TABLE `libro` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_usuario` int(11) NOT NULL,
-  `isbn` varchar(13) DEFAULT NULL,
-  `titulo` varchar(50) NOT NULL,
-  `editorial` varchar(35) NOT NULL,
-  `n_paginas` int(11) NOT NULL,
-  `usuario` bigint(20) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_usuario` (`id_usuario`),
-  CONSTRAINT `libro_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+DROP DATABASE IF EXISTS biblioteca2;
 
-INSERT INTO `libro` (`id`, `id_usuario`, `isbn`, `titulo`, `editorial`, `n_paginas`, `usuario`) VALUES
-(1,	2,	'123456789',	'Introduccion a React',	'Anaya',	200,	2),
-(2,	3,	'987654321',	'Aprendiendo Spring',	'Edelvives',	150,	3),
-(3,	1,	'12345678910',	'Mi primera App',	'Punto Rojo',	300,	1);
+CREATE DATABASE biblioteca2;
+
+USE biblioteca2;
 
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
@@ -42,5 +29,21 @@ INSERT INTO `usuario` (`id`, `username`, `password`, `dni`, `nombre`, `apellido`
 (1,	'pepe',	'pepe123',	'11111111H',	'José',	'Gómez',	'pepe@gmail.com'),
 (2,	'paco',	'paco123',	'22222222Y',	'Francisco',	'Pérez',	'paco@gmail.com'),
 (3,	'juan',	'juan123',	'33333333J',	'Juan',	'López',	'juan@gmail.com');
+
+DROP TABLE IF EXISTS `libro`;
+CREATE TABLE `libro` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `isbn` varchar(13) DEFAULT NULL,
+  `titulo` varchar(50) NOT NULL,
+  `editorial` varchar(35) NOT NULL,
+  `n_paginas` int(11) NOT NULL,
+  `usuario` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `libro` (`id`, `isbn`, `titulo`, `editorial`, `n_paginas`, `usuario`) VALUES
+(1,	'123456789',	'Introduccion a React',	'Anaya',	200,	2),
+(2,	'987654321',	'Aprendiendo Spring',	'Edelvives',	150,	3),
+(3,	'12345678910',	'Mi primera App',	'Punto Rojo',	300,	1);
 
 -- 2020-02-21 11:54:38

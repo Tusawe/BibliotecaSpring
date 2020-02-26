@@ -19,6 +19,9 @@ import lombok.NoArgsConstructor;
 public
 @Data @NoArgsConstructor @ AllArgsConstructor
 class Libro implements Serializable {
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	@Id 
 	private Long id;

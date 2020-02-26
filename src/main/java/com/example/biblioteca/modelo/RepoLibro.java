@@ -12,7 +12,7 @@ import com.example.biblioteca.modelo.Usuario;
 @Repository
 public interface RepoLibro extends JpaRepository<Libro, Long> {
 	
-	@Query("SELECT l FROM libro l WHERE l.id_usuario=?1")
-	List<Usuario> findByUsuarioId(Long usuarioId);
+	@Query("SELECT l FROM libro l WHERE l.usuario=?1")
+	List<Libro> findByUsuarioId(Long usuarioId);
 	
 }
