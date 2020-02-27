@@ -3,3 +3,9 @@
 2) ~/.m2/repository/org/projectlombok/lombok/1.18.10$ java -jar lombok-1.18.10.jar
 
 3) Seleccionas el ejecutable de spring(.ini) e instalas.
+
+
+Otra opcion:
+1) Click derecho en el proyecto -> Build Path -> Configure Build Path -> Libraries -> Classpath -> add external path
+
+2) Añadimos el jar de lombok
