@@ -35,6 +35,6 @@ class Usuario implements Serializable {
 	private String email;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
-	private List<Libro> libro;
+	private List<Libro> libros;
 	
 }

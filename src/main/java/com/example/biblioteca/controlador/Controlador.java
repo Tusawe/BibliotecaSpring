@@ -109,6 +109,15 @@ public class Controlador {
         return libro;
     }
 	
+	@PostMapping(value="/libro",  consumes={"application/json"})
+    @ResponseBody 
+    public Libro createLibro(@Valid @RequestBody Libro libro) {
+        Usuario usuario = libro.getUsuario();
+        libro.setUsuario(usuario);
+        repoLibro.save(libro);
+        return libro;
+    }
+	
 	@DeleteMapping("/libro/{id}")
     public Libro deleteLibro(@PathVariable(value = "id") Long bookId) {
         Libro libro = repoLibro.findById(bookId).orElseThrow(
@@ -139,6 +148,26 @@ public class Controlador {
 	        		()->new ResourceNotFoundException());
 	        Usuario usuario = repoUsuario.findById(userId).orElseThrow(
 	        		()->new ResourceNotFoundException());
+	        
+	        old_libro.setIsbn(libro.getIsbn());
+	        old_libro.setTitulo(libro.getTitulo());
+	        old_libro.setEditorial(libro.getEditorial());
+	        old_libro.setNPaginas(libro.getNPaginas());
+	        old_libro.setUsuario(usuario);
+	        
+	        repoLibro.save(old_libro);
+	        
+	   		return old_libro;
+	    }
+	 
+	 @PutMapping(value="/libro/{lib}", consumes={"application/json"})
+	    @ResponseBody
+	    public Libro updateLibro(
+	    			@Valid @RequestBody Libro libro,
+	    			@PathVariable(value = "lib") Long bookId) {
+	        Libro old_libro = repoLibro.findById(bookId).orElseThrow(
+	        		()->new ResourceNotFoundException());
+	        Usuario usuario = libro.getUsuario();
 	        
 	        old_libro.setIsbn(libro.getIsbn());
 	        old_libro.setTitulo(libro.getTitulo());

@@ -35,7 +35,7 @@ class Libro implements Serializable {
 	
 	@JoinColumn(name = "usuario", 
 			referencedColumnName = "id", 
-			nullable = false)     
+			nullable = true)     
 	@ManyToOne(optional = false)     
 	@JsonBackReference
 
